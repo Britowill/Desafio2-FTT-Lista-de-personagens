@@ -1,0 +1,70 @@
+#Durante o desenvolvimento de uma nova ferramenta responsável por gerenciar personagens e os animadores responsáveis por cada um deles, sua equipe solicitou que implementasse de forma rudimentar um código que permitisse criar e visualizar personagens usando apenas os comandos e estruturas de dados base da linguagem.
+#Cada um dos personagens contém nome, descrição, link para imagem, programa e animador."
+
+class Personagem:
+    def __init__(self, nome, descricao, link_imagem, programa, animador):
+        self.nome = nome
+        self.descricao = descricao
+        self.link_imagem = link_imagem
+        self.programa = programa
+        self.animador = animador
+
+    def visualizar(self):
+        print("Nome:", self.nome)
+        print("Descrição:", self.descricao)
+        print("Link para imagem:", self.link_imagem)
+        print("Programa:", self.programa)
+        print("Animador:", self.animador)
+
+
+# Cria uma lista de personagens iniciais
+# A lista foi gerada automaticamente através do ChatGPT
+personagens = [
+    Personagem("Mario", "Um encanador italiano que luta contra o Bowser", "https://www.mariowiki.com/Mario", "Super Mario Bros.", "Shigeru Miyamoto"),
+    Personagem("Luigi", "Um irmão do Mario que também luta contra o Bowser", "https://www.mariowiki.com/Luigi", "Super Mario Bros.", "Shigeru Miyamoto"),
+    Personagem("Peach", "Uma princesa que é sequestrada pelo Bowser", "https://www.mariowiki.com/Peach", "Super Mario Bros.", "Shigeru Miyamoto"),
+    Personagem("Link", "Um jovem herói que protege Hyrule das forças do mal", "https://www.zeldawiki.com/Link", "The Legend of Zelda", "Shigeru Miyamoto"),
+    Personagem("Zelda", "A Princesa de Hyrule que é sequestrada por Ganondorf", "https://www.zeldawiki.com/Zelda", "The Legend of Zelda", "Shigeru Miyamoto"),
+    Personagem("Samus Aran", "Uma caçadora de recompensas que luta contra os Piratas Espaciais", "https://www.metroidwiki.org/Samus_Aran", "Metroid", "Yoshimi Yamauchi"),
+    Personagem("Master Chief", "Um supersoldado que luta contra os Covenant", "https://www.halowaypoint.com/en-us/characters/master-chief", "Halo", "Bungie"),
+    Personagem("Cortana", "Uma IA que auxilia o Master Chief", "https://www.halowaypoint.com/en-us/characters/cortana", "Halo", "Bungie"),
+    Personagem("Lara Croft", "Uma arqueóloga que explora tumbas antigas", "https://www.laracroft.com/", "Tomb Raider", "Toby Gard"),
+    Personagem("Nathan Drake", "Um caçador de tesouros que explora o mundo em busca de relíquias perdidas", "https://www.unchartedthegame.com/", "Uncharted", "Neil Druckmann"),
+    Personagem("Joel Miller", "Um contrabandista que se torna o guardião de Ellie", "https://www.thelastofus.com/", "The Last of Us", "Neil Druckmann"),
+    Personagem("Ellie Williams", "Uma jovem que é imune a um vírus que transforma as pessoas em criaturas canibais", "https://www.thelastofus.com/", "The Last of Us", "Neil Druckmann"),
+    Personagem("Geralt de Rivia", "Um caçador de monstros que viaja pelo continente em busca de trabalho", "https://witcher.com/", "The Witcher", "Andrzej Sapkowski"),
+    Personagem("Yennefer de Vengerberg", "Uma feiticeira que se torna a amante de Geralt", "https://witcher.com/", "The Witcher", "Andrzej Sapkowski"),
+    Personagem("Ciri", "Uma jovem que é a Criança da Prophecia e destinada a salvar o mundo", "https://witcher.com/", "The Witcher", "Andrzej Sapkowski"),
+    Personagem("Kratos", "Um guerreiro espartano que busca vingança contra os deuses do Olimpo", "https://godofwar.playstation.com/", "God of War", "David Jaffe"),
+]
+
+
+# Função para visualizar um personagem
+def visualizar_personagem():
+    while True:
+        nome = input("Você deseja informações de qual personagem? (Pressione Enter para sair) ")
+        if nome == "":
+            break
+
+        for personagem in personagens:
+            if personagem.nome == nome:
+                personagem.visualizar()
+                break
+        else:
+            # O personagem não foi encontrado na lista, então adicionamos ele à lista
+            inserir_personagem(nome)
+
+
+# Função para inserir um personagem na lista
+def inserir_personagem(nome):
+    descricao = input("Descrição do personagem: ")
+    link_imagem = input("Link para imagem do personagem: ")
+    programa = input("Programa do personagem: ")
+    animador = input("Animador do personagem: ")
+
+    personagem = Personagem(nome, descricao, link_imagem, programa, animador)
+    personagens.append(personagem)
+
+
+# Chamada das funções
+visualizar_personagem()
